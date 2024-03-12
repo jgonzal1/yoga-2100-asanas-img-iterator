@@ -1,7 +1,8 @@
 :root {
   --clip-size: 1%;
   --clip-size-inv: 99%;
-  --page-fraction: min(45vw, 95vh);
+  --page-fraction-full: min(31vw, 46vh);
+  --page-fraction-rolling: min(45vw, 95vh);
 }
 
 body {
@@ -22,8 +23,16 @@ body {
   display: inline-block;
   margin: 0px 1px 1px 0px;
   position: relative;
-  height: var(--page-fraction);
-  width: var(--page-fraction);
+}
+
+.dims-full {
+  height: var(--page-fraction-full);
+  width: var(--page-fraction-full);
+}
+
+.dims-rolling {
+  height: var(--page-fraction-rolling);
+  width: var(--page-fraction-rolling);
 }
 
 .span-img-descriptor {
@@ -35,12 +44,21 @@ body {
 
 img {
   margin: 0px 1px 1px 0px;
-  width: var(--page-fraction);
   clip-path: padding-box polygon(var(--clip-size) var(--clip-size),
       var(--clip-size-inv) var(--clip-size),
       var(--clip-size-inv) var(--clip-size-inv),
       var(--clip-size) var(--clip-size-inv));
   outline-style: solid;
-  outline-width: calc(var(--page-fraction) / 2);
-  outline-offset: calc(var(--page-fraction) / -2);
+}
+
+.img-full {
+  width: var(--page-fraction-full);
+  outline-width: calc(var(--page-fraction-full) / 2);
+  outline-offset: calc(var(--page-fraction-full) / -2);
+}
+
+.img-rolling {
+  width: var(--page-fraction-rolling);
+  outline-width: calc(var(--page-fraction-rolling) / 2);
+  outline-offset: calc(var(--page-fraction-rolling) / -2);
 }

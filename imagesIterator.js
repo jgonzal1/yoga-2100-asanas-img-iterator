@@ -43,7 +43,7 @@ class ImgsIterator extends React.Component {
 
   setTimerText() {
     const currentDt = new Date();
-    const nChars = 10;
+    const nChars = 10 + 1;
     // @ts-ignore
     const nPend = nChars * (0.2 + this.state.interval - ((currentDt - this.state.currentDt) / 1000)) / this.state.interval;
     const nDone = nChars - nPend;
@@ -72,7 +72,7 @@ class ImgsIterator extends React.Component {
           return React.createElement(
             "div",
             {
-              className: "images-container",
+              className: `images-container ${listMode === "rolling" ? "dims-rolling" : "dims-full"}`,
               key: `image-container-${k}`,
               style: {
                 borderColor: !isNaN(img["d"] ?? NaN) ? difficultyColors[img["d"] ?? 0] : "auto",
@@ -90,6 +90,7 @@ class ImgsIterator extends React.Component {
               "img",
               {
                 src: `C:/Users/dark_/Dropbox/Books/Health/yoga-2100-asanas/images/${img["i"]}`,
+                className: listMode === "rolling" ? "img-rolling" : "img-full",
                 key: `image-${k}`,
                 title: `${k}${d && `, d: ${d}`}${p && `, p: ${p}`}`,
                 style: { outlineColor: !isNaN(img["d"] ?? NaN) ? `${difficultyColors[img["d"] ?? 0]}2` : "#0002" }
