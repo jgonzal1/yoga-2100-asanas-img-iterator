@@ -1,8 +1,7 @@
 :root {
   --clip-size: 1%;
   --clip-size-inv: 99%;
-  /**/
-  --page-fraction: 31vw;
+  --page-fraction: min(45vw, 95vh);
 }
 
 body {
