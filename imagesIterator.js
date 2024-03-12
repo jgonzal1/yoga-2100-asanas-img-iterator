@@ -1,6 +1,7 @@
 "use strict";
-const listMode = "rolling"; // "full"; //
+let listMode = "rolling"; // "full"; //
 const interval = 25; // s
+const totalDuration = Math.round(globalThis.imgs.length * interval / 60);
 const changingPositionSound = new Audio("./change.mp3");
 const difficultyColors = [
   "#6C0", "#CB0", "#33F", "#93C", "#C33", "#600"
@@ -16,6 +17,7 @@ class ImgsIterator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      initialDt: new Date(),
       currentDt: new Date(),
       currentImgToDisplay: 0,
       // @ts-ignore
@@ -27,23 +29,27 @@ class ImgsIterator extends React.Component {
   componentDidMount() {
     // @ts-ignore
     if (listMode === "rolling") {
-      setInterval(() => {
+      const rolling = setInterval(() => {
         changingPositionSound.play();
         this.state.currentDt = new Date();
         this.state.currentImgToDisplay += 1;
+        if (this.state.currentImgToDisplay >= globalThis.imgs.length) {
+          clearInterval(rolling);
+          listMode = "full";
+        }
       }, this.state.interval * 1000);
     }
   }
 
   setTimerText() {
-    return `Position ${this.state.currentImgToDisplay + 1
-      }. Changing in ${Math.round(10 * (
-        0.2 + this.state.interval - (
-          // @ts-ignore
-          (new Date() - this.state.currentDt) / 1000
-        )
-      )) / 10
-      } s.`
+    const currentDt = new Date();
+    const nChars = 10;
+    // @ts-ignore
+    const nPend = nChars * (0.2 + this.state.interval - ((currentDt - this.state.currentDt) / 1000)) / this.state.interval;
+    const nDone = nChars - nPend;
+    return `#${this.state.currentImgToDisplay + 1}
+      [${"*".repeat(nDone)}${".".repeat(nPend)}]${" "// @ts-ignore
+      }(${((currentDt - this.state.initialDt) / 60000).toFixed(1)} of ${totalDuration} min).`;
   }
 
   render() {
@@ -55,14 +61,10 @@ class ImgsIterator extends React.Component {
         // @ts-ignore
         React.createElement(
           "div",
-          { style: { fontSize: "2em" } },
-          // @ts-ignore
+          { style: { fontSize: "2em", fontFamily: "courier" } },
           listMode === "rolling" ? this.setTimerText() : null
         ),
         globalThis.imgs.map((img, idx) => {
-          if (this.state.currentImgToDisplay === idx) {
-            console.log("matching idx", idx)
-          }
           const k = `${idx + 1}${img["i"].length > 10 ? `-${img["i"].substring(7, 11)}` : ""}`;
           const d = img["d"] ?? "";
           const p = img["p"] ?? "";
@@ -87,7 +89,7 @@ class ImgsIterator extends React.Component {
             React.createElement(
               "img",
               {
-                src: `../images/${img["i"]}`,
+                src: `C:/Users/dark_/Dropbox/Books/Health/yoga-2100-asanas/images/${img["i"]}`,
                 key: `image-${k}`,
                 title: `${k}${d && `, d: ${d}`}${p && `, p: ${p}`}`,
                 style: { outlineColor: !isNaN(img["d"] ?? NaN) ? `${difficultyColors[img["d"] ?? 0]}2` : "#0002" }
