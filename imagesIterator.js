@@ -25,6 +25,7 @@ class ImgsIterator extends React.Component {
   };
 
   componentDidMount() {
+    // @ts-ignore
     if (listMode === "rolling") {
       setInterval(() => {
         changingPositionSound.play();
@@ -55,6 +56,7 @@ class ImgsIterator extends React.Component {
         React.createElement(
           "div",
           { style: { fontSize: "2em" } },
+          // @ts-ignore
           listMode === "rolling" ? this.setTimerText() : null
         ),
         globalThis.imgs.map((img, idx) => {
@@ -71,9 +73,10 @@ class ImgsIterator extends React.Component {
               className: "images-container",
               key: `image-container-${k}`,
               style: {
-                borderColor: !isNaN(img["d"]) ? difficultyColors[img["d"]] : "auto",
+                borderColor: !isNaN(img["d"] ?? NaN) ? difficultyColors[img["d"] ?? 0] : "auto",
                 borderStyle: img["p"] ? pos[img["p"]] : "groove",
                 display: (
+                  // @ts-ignore
                   (listMode === "rolling") && (idx !== this.state.currentImgToDisplay) ?
                     "none" :
                     "inline-block"
@@ -86,8 +89,8 @@ class ImgsIterator extends React.Component {
               {
                 src: `../images/${img["i"]}`,
                 key: `image-${k}`,
-                title: `${k}, d: ${d}, p: ${p}`,
-                style: { outlineColor: !isNaN(img["d"]) ? `${difficultyColors[img["d"]]}2` : "#0000" }
+                title: `${k}${d && `, d: ${d}`}${p && `, p: ${p}`}`,
+                style: { outlineColor: !isNaN(img["d"] ?? NaN) ? `${difficultyColors[img["d"] ?? 0]}2` : "#0002" }
               },
               null
             ),
