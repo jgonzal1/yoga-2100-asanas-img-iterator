@@ -1,5 +1,14 @@
 "use strict";
-let listMode = "rolling"; // "full"; //
+const url = window.location.href;
+const href = url.substring(url.indexOf("#") + 1);
+const listModeLiteral = "listMode";
+const listModeLitLen = listModeLiteral.length + 1;
+const lTmp = href.substring(
+  href.search(`${listModeLiteral}=`) === -1 ?
+    0 :
+    href.search(`${listModeLiteral}=`) + listModeLitLen
+);
+let listMode = lTmp === href ? href : lTmp; // rolling, all
 const interval = 25; // s
 const totalDuration = Math.round(globalThis.imgs.length * interval / 60);
 const changingPositionSound = new Audio("./change.mp3");
