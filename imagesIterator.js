@@ -101,7 +101,7 @@ class ImgsIterator extends React.Component {
                 src: `C:/Users/dark_/Dropbox/Books/Health/yoga-2100-asanas/images/${img["i"]}`,
                 className: listMode === "rolling" ? "img-rolling" : "img-full",
                 key: `image-${k}`,
-                title: `${k}${d && `, d: ${d}`}${p && `, p: ${p}`}`,
+                title: `${k}${!isNaN(d) && `, d: ${d}`}${p && `, p: ${p}`}`,
                 style: { outlineColor: !isNaN(img["d"] ?? NaN) ? `${difficultyColors[img["d"] ?? 0]}2` : "#0002" }
               },
               null
