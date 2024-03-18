@@ -98,7 +98,7 @@ class ImgsIterator extends React.Component {
             React.createElement(
               "img",
               {
-                src: `C:/Users/dark_/Dropbox/Books/Health/yoga-2100-asanas/images/${img["i"]}`,
+                src: `${globalThis.imagesRoute}/${img["i"]}`,
                 className: listMode === "rolling" ? "img-rolling" : "img-full",
                 key: `image-${k}`,
                 title: `${k}${!isNaN(d) && `, d: ${d}`}${p && `, p: ${p}`}`,
