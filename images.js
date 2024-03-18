@@ -55,15 +55,15 @@ globalThis.imgs = [
   */
   //#endregion
   //#region Parsed list
+  { "p": "u", "d": 0, "i": "200_img1771.jpg" },
   { "p": "u", "d": 0, "i": "200_img1776.jpg" },
   { "p": "u", "d": 0, "i": "200_img2097.jpg" },
   { "p": "u", "d": 0, "i": "200_img2318.jpg" },
   { "p": "u", "d": 0, "i": "200_img2366.jpg" },
-  { "p": "u", "d": 0, "i": "200_img2397.jpg" },
   { "p": "u", "d": 0, "i": "200_img2437.jpg" },
   { "p": "u", "d": 0, "i": "200_img2450.jpg" },
   { "p": "u", "d": 1, "i": "200_img1572.jpg" },
-  { "p": "u", "d": 1, "i": "200_img1771.jpg" },
+  { "p": "u", "d": 1, "i": "200_img1572.jpg" }, // Duplicate intended (weird pose)
   { "p": "u", "d": 1, "i": "200_img1910.jpg" },
   { "p": "u", "d": 1, "i": "200_img2007.jpg" },
   { "p": "u", "d": 1, "i": "200_img2171.jpg" },
@@ -74,6 +74,7 @@ globalThis.imgs = [
   { "p": "u", "d": 1, "i": "200_img2250.jpg" },
   { "p": "u", "d": 1, "i": "200_img2273.jpg" },
   { "p": "u", "d": 1, "i": "200_img2276.jpg" },
+  { "p": "u", "d": 1, "i": "200_img2397.jpg" },
   { "p": "u", "d": 2, "i": "200_img1611.jpg" },
   { "p": "u", "d": 2, "i": "200_img1623.jpg" },
   { "p": "u", "d": 2, "i": "200_img1812.jpg" },
