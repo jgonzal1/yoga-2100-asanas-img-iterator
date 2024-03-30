@@ -9,8 +9,15 @@ const lTmp = href.substring(
     href.search(`${listModeLiteral}=`) + listModeLitLen
 );
 let listMode = lTmp === href ? href : lTmp; // rolling, all
-const interval = 25; // s
-const totalDuration = Math.round(globalThis.imgs.length * interval / 60);
+const notes = [
+  "C2", "D2", "E2", "F2", "G2", "A2", "B2",
+  "C3", "D3", "E3", "F3", "G3", "A3", "B3",
+  "C4"
+];
+//@ts-ignore Create a synth and connect it to the main output (your speakers)
+const synth = new Tone.Synth().toDestination();
+const interval = notes.length; // 25 s
+const totalDuration = Math.round(globalThis.imgs.length * interval / 30);
 const changingPositionSound = new Audio("./change.mp3");
 const difficultyColors = [
   "#6C0", "#CB0", "#33F", "#93C", "#C33", "#600"
@@ -21,6 +28,7 @@ const pos = {
   "s": "dotted dashed solid dashed",
   "f": "dotted dotted dashed dotted"
 };
+let rolling, rollingSec;
 // @ts-ignore
 class ImgsIterator extends React.Component {
   constructor(props) {
@@ -31,34 +39,55 @@ class ImgsIterator extends React.Component {
       currentImgToDisplay: 0,
       // @ts-ignore
       imagesWrapper: React.createElement("div"),
-      interval: interval
+      interval: interval,
+      timerText: ""
     };
   };
 
   componentDidMount() {
     // @ts-ignore
     if (listMode === "rolling") {
-      const rolling = setInterval(() => {
-        changingPositionSound.play();
-        this.state.currentDt = new Date();
-        this.state.currentImgToDisplay += 1;
-        if (this.state.currentImgToDisplay >= globalThis.imgs.length) {
-          clearInterval(rolling);
-          listMode = "full";
-        }
-      }, this.state.interval * 1000);
+      this.startRolling()
     }
   }
 
   setTimerText() {
     const currentDt = new Date();
-    const nChars = 10 + 1;
     // @ts-ignore
-    const nPend = nChars * (0.2 + this.state.interval - ((currentDt - this.state.currentDt) / 1000)) / this.state.interval;
+    const currentSec = (currentDt - this.state.currentDt) / 1000;
+    const nChars = 10 + 1;
+    const nPend = nChars * (0.2 + this.state.interval - currentSec) / this.state.interval;
     const nDone = nChars - nPend;
-    return `#${this.state.currentImgToDisplay + 1}
+    this.state.timerText = `#${this.state.currentImgToDisplay + 1}
       [${"*".repeat(nDone)}${".".repeat(nPend)}]${" "// @ts-ignore
       }(${((currentDt - this.state.initialDt) / 60000).toFixed(1)} of ${totalDuration} min).`;
+  }
+
+  startRolling() {
+    rolling = setInterval(() => {
+      changingPositionSound.play();
+      this.state.currentDt = new Date();
+      this.state.currentImgToDisplay += 1;
+      if (this.state.currentImgToDisplay >= globalThis.imgs.length) {
+        clearInterval(rolling);
+        listMode = "full";
+      }
+    }, this.state.interval * 2000);
+    let currentS = 0;
+    rollingSec = setInterval(() => {
+      synth.triggerAttackRelease(notes[currentS % this.state.interval], "8n");
+      this.setTimerText();
+      if (this.state.currentImgToDisplay >= globalThis.imgs.length) {
+        clearInterval(rollingSec);
+      }
+      currentS += 1;
+    }, 2000);
+  }
+  stopRolling() {
+    clearInterval(rolling);
+    rolling = null;
+    clearInterval(rollingSec)
+    rollingSec = null;
   }
 
   render() {
@@ -67,12 +96,38 @@ class ImgsIterator extends React.Component {
       "div",
       { id: "imagesWrapper" },
       [
+        listMode === "rolling" ?
+          // @ts-ignore
+          React.createElement(
+            "button",
+            {
+              style: {
+                backgroundColor: "#000",
+                border: "1px solid #666",
+                color: "#FFF",
+                cursor: "pointer",
+                display: "inline-block",
+                fontSize: "1.6em",
+                fontFamily: "courier",
+              },
+              onClick: () => rolling ? this.stopRolling() : this.startRolling()
+            },
+            rolling ? "Stop rolling" : "Start rolling"
+          ) : null,
         // @ts-ignore
         React.createElement(
           "div",
-          { style: { fontSize: "2em", fontFamily: "courier" } },
-          listMode === "rolling" ? this.setTimerText() : null
-        ),
+          {
+            style: {
+              display: "inline-block",
+              fontSize: "1.6em",
+              fontFamily: "courier",
+              marginLeft: "0.3em"
+            }
+          },
+          this.state.timerText
+        ), // @ts-ignore
+        React.createElement("div", { style: { height: "0.5em" } }, null), // @ts-ignore
         globalThis.imgs.map((img, idx) => {
           const k = `${idx + 1}${img["i"].length > 10 ? `-${img["i"].substring(7, 11)}` : ""}`;
           const d = img["d"] ?? "";
