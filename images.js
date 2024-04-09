@@ -62,8 +62,6 @@ globalThis.imgs = [
   { "p": "u", "d": 0, "i": "200_img2366.jpg" },
   { "p": "u", "d": 0, "i": "200_img2437.jpg" },
   { "p": "u", "d": 0, "i": "200_img2450.jpg" },
-  { "p": "u", "d": 1, "i": "200_img1572.jpg" },
-  { "p": "u", "d": 1, "i": "200_img1572.jpg" }, // Duplicate intended (weird pose)
   { "p": "u", "d": 1, "i": "200_img1812.jpg" },
   { "p": "u", "d": 1, "i": "200_img1867.jpg" },
   { "p": "u", "d": 1, "i": "200_img1910.jpg" },
@@ -73,22 +71,25 @@ globalThis.imgs = [
   { "p": "u", "d": 1, "i": "200_img2171.jpg" },
   { "p": "u", "d": 1, "i": "200_img2179.jpg" },
   { "p": "u", "d": 1, "i": "200_img2182.jpg" },
-  { "p": "u", "d": 1, "i": "200_img2200.jpg" },
   { "p": "u", "d": 1, "i": "200_img2229.jpg" },
-  { "p": "u", "d": 1, "i": "200_img2230.jpg" },
   { "p": "u", "d": 1, "i": "200_img2250.jpg" },
   { "p": "u", "d": 1, "i": "200_img2273.jpg" },
-  { "p": "u", "d": 1, "i": "200_img2276.jpg" },
   { "p": "u", "d": 1, "i": "200_img2381.jpg" },
   { "p": "u", "d": 1, "i": "200_img2386.jpg" },
+  { "p": "u", "d": 2, "i": "200_img1572.jpg" },
+  { "p": "u", "d": 2, "i": "200_img1572.jpg" }, // Duplicate intended (weird pose)
   { "p": "u", "d": 2, "i": "200_img1611.jpg" },
   { "p": "u", "d": 2, "i": "200_img1623.jpg" },
+  { "p": "u", "d": 2, "i": "200_img1623.jpg" }, // Duplicate intended (weird pose)
   { "p": "u", "d": 2, "i": "200_img1900.jpg" },
   { "p": "u", "d": 2, "i": "200_img1907.jpg" },
   { "p": "u", "d": 2, "i": "200_img1915.jpg" },
   { "p": "u", "d": 2, "i": "200_img1923.jpg" },
   { "p": "u", "d": 2, "i": "200_img2015.jpg" },
+  { "p": "u", "d": 2, "i": "200_img2276.jpg" },
+  { "p": "u", "d": 2, "i": "200_img2276.jpg" }, // Duplicate intended (weird pose)
   { "p": "u", "d": 2, "i": "200_img2329.jpg" },
+  { "p": "u", "d": 2, "i": "200_img2329.jpg" }, // Duplicate intended (weird pose)
   { "p": "u", "d": 2, "i": "200_img2342.jpg" },
   // 45; 2437+...
   //#endregion
@@ -98,6 +99,8 @@ globalThis.imgs = [
   { "p": "u", "d": 3, "i": "200_img1559.jpg" },
   { "p": "u", "d": 3, "i": "200_img1593.jpg" },
   { "p": "u", "d": 3, "i": "200_img2059.jpg" },
+  { "p": "u", "d": 3, "i": "200_img2200.jpg" },
+  { "p": "u", "d": 3, "i": "200_img2230.jpg" },
   { "p": "u", "d": 3, "i": "200_img2265.jpg" },
   { "p": "u", "d": 3, "i": "200_img2334.jpg" },
   { "i": "-.png" },
