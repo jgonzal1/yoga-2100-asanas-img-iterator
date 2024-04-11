@@ -72,7 +72,7 @@ class ImgsIterator extends React.Component {
         clearInterval(rolling);
         listMode = "full";
       }
-    }, this.state.interval * 2000);
+    }, this.state.interval * 1000);
     let currentS = 0;
     rollingSec = setInterval(() => {
       synth.triggerAttackRelease(notes[currentS % this.state.interval], "8n");
@@ -81,7 +81,7 @@ class ImgsIterator extends React.Component {
         clearInterval(rollingSec);
       }
       currentS += 1;
-    }, 2000);
+    }, 1000);
   }
   stopRolling() {
     clearInterval(rolling);
