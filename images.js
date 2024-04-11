@@ -50,47 +50,68 @@ globalThis.imgs = [
   Duplicated
   {                   "i": "200_img1557.jpg" },
   {                   "i": "200_img1564.jpg" },
+  {                   "i": "200_img2381.jpg" },
   {                   "i": "200_img2400.jpg" },
   {                   "i": "200_img2421.jpg" },
   */
   //#endregion
   //#region Parsed list
   { "p": "u", "d": 0, "i": "200_img1771.jpg" },
+  { "p": "u", "d": 0, "i": "200_img1771f.jpg" },
   { "p": "u", "d": 0, "i": "200_img1776.jpg" },
+  { "p": "u", "d": 0, "i": "200_img1776f.jpg" },
   { "p": "u", "d": 0, "i": "200_img2097.jpg" },
   { "p": "u", "d": 0, "i": "200_img2318.jpg" },
   { "p": "u", "d": 0, "i": "200_img2366.jpg" },
+  { "p": "u", "d": 0, "i": "200_img2366f.jpg" },
   { "p": "u", "d": 0, "i": "200_img2437.jpg" },
+  { "p": "u", "d": 0, "i": "200_img2437f.jpg" },
   { "p": "u", "d": 0, "i": "200_img2450.jpg" },
+  { "p": "u", "d": 0, "i": "200_img2450f.jpg" },
   { "p": "u", "d": 1, "i": "200_img1812.jpg" },
+  { "p": "u", "d": 1, "i": "200_img1812f.jpg" },
   { "p": "u", "d": 1, "i": "200_img1867.jpg" },
+  { "p": "u", "d": 1, "i": "200_img1867f.jpg" },
   { "p": "u", "d": 1, "i": "200_img1910.jpg" },
+  { "p": "u", "d": 1, "i": "200_img1910f.jpg" },
   { "p": "u", "d": 1, "i": "200_img1965.jpg" },
+  { "p": "u", "d": 1, "i": "200_img1965f.jpg" },
   { "p": "u", "d": 1, "i": "200_img2007.jpg" },
+  { "p": "u", "d": 1, "i": "200_img2007f.jpg" },
   { "p": "u", "d": 1, "i": "200_img2012.jpg" },
+  { "p": "u", "d": 1, "i": "200_img2012f.jpg" },
   { "p": "u", "d": 1, "i": "200_img2171.jpg" },
   { "p": "u", "d": 1, "i": "200_img2179.jpg" },
+  { "p": "u", "d": 1, "i": "200_img2179f.jpg" },
   { "p": "u", "d": 1, "i": "200_img2182.jpg" },
+  { "p": "u", "d": 1, "i": "200_img2182f.jpg" },
   { "p": "u", "d": 1, "i": "200_img2229.jpg" },
+  { "p": "u", "d": 1, "i": "200_img2229f.jpg" },
   { "p": "u", "d": 1, "i": "200_img2250.jpg" },
   { "p": "u", "d": 1, "i": "200_img2273.jpg" },
-  { "p": "u", "d": 1, "i": "200_img2381.jpg" },
+  { "p": "u", "d": 1, "i": "200_img2273f.jpg" },
   { "p": "u", "d": 1, "i": "200_img2386.jpg" },
+  { "p": "u", "d": 1, "i": "200_img2386f.jpg" },
   { "p": "u", "d": 2, "i": "200_img1572.jpg" },
-  { "p": "u", "d": 2, "i": "200_img1572.jpg" }, // Duplicate intended (weird pose)
-  { "p": "u", "d": 2, "i": "200_img1611.jpg" },
+  { "p": "u", "d": 2, "i": "200_img1572f.jpg" },//x2
   { "p": "u", "d": 2, "i": "200_img1623.jpg" },
-  { "p": "u", "d": 2, "i": "200_img1623.jpg" }, // Duplicate intended (weird pose)
+  { "p": "u", "d": 2, "i": "200_img1623f.jpg" },//x2
   { "p": "u", "d": 2, "i": "200_img1900.jpg" },
+  { "p": "u", "d": 2, "i": "200_img1900f.jpg" },
   { "p": "u", "d": 2, "i": "200_img1907.jpg" },
+  { "p": "u", "d": 2, "i": "200_img1907f.jpg" },
   { "p": "u", "d": 2, "i": "200_img1915.jpg" },
+  { "p": "u", "d": 2, "i": "200_img1915f.jpg" },
   { "p": "u", "d": 2, "i": "200_img1923.jpg" },
+  { "p": "u", "d": 2, "i": "200_img1923f.jpg" },
   { "p": "u", "d": 2, "i": "200_img2015.jpg" },
+  { "p": "u", "d": 2, "i": "200_img2015f.jpg" },
   { "p": "u", "d": 2, "i": "200_img2276.jpg" },
-  { "p": "u", "d": 2, "i": "200_img2276.jpg" }, // Duplicate intended (weird pose)
+  { "p": "u", "d": 2, "i": "200_img2276f.jpg" },//x2
   { "p": "u", "d": 2, "i": "200_img2329.jpg" },
-  { "p": "u", "d": 2, "i": "200_img2329.jpg" }, // Duplicate intended (weird pose)
+  { "p": "u", "d": 2, "i": "200_img2329f.jpg" },//x2
   { "p": "u", "d": 2, "i": "200_img2342.jpg" },
+  { "p": "u", "d": 2, "i": "200_img2342f.jpg" },
   // 45; 2437+...
   //#endregion
   //#region Reviewed dif>2
@@ -98,6 +119,7 @@ globalThis.imgs = [
   { "i": "-.png" },
   { "p": "u", "d": 3, "i": "200_img1559.jpg" },
   { "p": "u", "d": 3, "i": "200_img1593.jpg" },
+  { "p": "u", "d": 3, "i": "200_img1611.jpg" },
   { "p": "u", "d": 3, "i": "200_img2059.jpg" },
   { "p": "u", "d": 3, "i": "200_img2200.jpg" },
   { "p": "u", "d": 3, "i": "200_img2230.jpg" },
