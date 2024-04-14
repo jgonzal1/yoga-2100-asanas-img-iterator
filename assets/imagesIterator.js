@@ -16,8 +16,8 @@ const notes = [
 ];
 //@ts-ignore Create a synth and connect it to the main output (your speakers)
 const synth = new Tone.Synth().toDestination();
-const interval = notes.length; // 25 s
-const totalDuration = Math.round(globalThis.imgs.length * interval / 30);
+const interval = notes.length; // 14 s
+const totalDuration = Math.round(globalThis.imgs.length * interval / 60);
 const changingPositionSound = new Audio("./change.mp3");
 const difficultyColors = [
   "#6C0", "#CB0", "#33F", "#93C", "#C33", "#600"
@@ -40,7 +40,7 @@ class ImgsIterator extends React.Component {
       // @ts-ignore
       imagesWrapper: React.createElement("div"),
       interval: interval,
-      timerText: ""
+      timerText: `Routine of ${globalThis.imgs.length} movements (${totalDuration} min).`
     };
   };
 
