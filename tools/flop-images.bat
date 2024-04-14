@@ -24,3 +24,19 @@ magick convert 200_img2015.jpg -flop 200_img2015f.jpg
 magick convert 200_img2276.jpg -flop 200_img2276f.jpg
 magick convert 200_img2329.jpg -flop 200_img2329f.jpg
 magick convert 200_img2342.jpg -flop 200_img2342f.jpg
+
+magick convert 200_img1646.jpg -flop 200_img1646f.jpg
+magick convert 200_img1661.jpg -flop 200_img1661f.jpg
+magick convert 200_img1726.jpg -flop 200_img1726f.jpg
+magick convert 200_img1971.jpg -flop 200_img1971f.jpg
+magick convert 200_img2411.jpg -flop 200_img2411f.jpg
+magick convert 200_img1613.jpg -flop 200_img1613f.jpg
+magick convert 200_img1618.jpg -flop 200_img1618f.jpg
+magick convert 200_img1626.jpg -flop 200_img1626f.jpg
+magick convert 200_img1636.jpg -flop 200_img1636f.jpg
+magick convert 200_img1649.jpg -flop 200_img1649f.jpg
+magick convert 200_img1674.jpg -flop 200_img1674f.jpg
+magick convert 200_img1750.jpg -flop 200_img1750f.jpg
+magick convert 200_img1892.jpg -flop 200_img1892f.jpg
+magick convert 200_img1902.jpg -flop 200_img1902f.jpg
+magick convert 200_img1925.jpg -flop 200_img1925f.jpg
