@@ -43,3 +43,5 @@ magick convert 200_img1925.jpg -flop 200_img1925f.jpg
 
 magick convert _3_lunge_d.jpg -flop _3_lunge_i.jpg
 magick convert _7_split_squat.jpg -flop _7_split_squat_f.jpg
+
+magick convert cross_body_reach_l.PNG -flop cross_body_reach_r.PNG

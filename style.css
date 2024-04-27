@@ -41,9 +41,10 @@ img {
 }
 
 .img-full {
-  width: var(--page-fraction-full);
+  height: var(--page-fraction-full);
   outline-width: calc(var(--page-fraction-full) / 2);
   outline-offset: calc(var(--page-fraction-full) / -2);
+  width: var(--page-fraction-full);
 }
 
 .img-rolling {
