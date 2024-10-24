@@ -102,6 +102,7 @@ class ImgsIterator extends React.Component {
           React.createElement(
             "button",
             {
+              key: "rollingButton",
               style: {
                 backgroundColor: "#000",
                 border: "1px solid #666",
@@ -119,13 +120,13 @@ class ImgsIterator extends React.Component {
         React.createElement(
           "div",
           {
+            key: "timerText",
             style: {
               display: "inline-block",
               fontSize: "1.6em",
               fontFamily: "courier",
               marginLeft: "0.3em"
-            },
-            key: "timerText"
+            }
           },
           this.state.timerText
         ), // @ts-ignore
@@ -138,8 +139,8 @@ class ImgsIterator extends React.Component {
           return React.createElement(
             "div",
             {
-              className: `images-container ${listMode === "rolling" ? "dims-rolling" : "dims-full"}`,
               key: `image-container-${k}`,
+              className: `images-container ${listMode === "rolling" ? "dims-rolling" : "dims-full"}`,
               style: {
                 borderColor: !isNaN(img["d"] ?? NaN) ? difficultyColors[img["d"] ?? 0] : "auto",
                 borderStyle: img["p"] ? pos[img["p"]] : "groove",
@@ -155,9 +156,9 @@ class ImgsIterator extends React.Component {
             React.createElement(
               "img",
               {
+                key: `image-${k}`,
                 src: `${globalThis.imagesRoute}/${img["i"]}`,
                 className: listMode === "rolling" ? "img-rolling" : "img-full",
-                key: `image-${k}`,
                 title: `${k}${!isNaN(d) && `, d: ${d}`}${p && `, p: ${p}`}`,
                 style: { outlineColor: !isNaN(img["d"] ?? NaN) ? `${difficultyColors[img["d"] ?? 0]}2` : "#0002" }
               },
@@ -166,6 +167,10 @@ class ImgsIterator extends React.Component {
           );
         })]
     );
+    // @ts-ignore
+    this.setState({
+      imagesWrapper: imagesWrapper
+    });
     return imagesWrapper;
   }
 }
