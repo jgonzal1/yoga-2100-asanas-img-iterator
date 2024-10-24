@@ -1,4 +1,5 @@
 "use strict";
+const speed = 0.5;
 const url = window.location.href;
 const href = url.substring(url.indexOf("#") + 1);
 const listModeLiteral = "listMode";
@@ -16,7 +17,7 @@ const notes = [
 ];
 //@ts-ignore Create a synth and connect it to the main output (your speakers)
 const synth = new Tone.Synth().toDestination();
-const interval = notes.length; // 14 s
+const interval = notes.length / speed; // 14 s
 const totalDuration = Math.round(globalThis.imgs.length * interval / 60);
 const changingPositionSound = new Audio("./change.mp3");
 const difficultyColors = [
@@ -81,7 +82,7 @@ class ImgsIterator extends React.Component {
         clearInterval(rollingSec);
       }
       currentS += 1;
-    }, 1000);
+    }, this.state.interval * 1000);
   }
   stopRolling() {
     clearInterval(rolling);
@@ -94,7 +95,7 @@ class ImgsIterator extends React.Component {
     // @ts-ignore
     const imagesWrapper = React.createElement(
       "div",
-      { id: "imagesWrapper" },
+      { id: "imagesWrapper", key: "imagesWrapper" },
       [
         listMode === "rolling" ?
           // @ts-ignore
@@ -123,11 +124,12 @@ class ImgsIterator extends React.Component {
               fontSize: "1.6em",
               fontFamily: "courier",
               marginLeft: "0.3em"
-            }
+            },
+            key: "timerText"
           },
           this.state.timerText
         ), // @ts-ignore
-        React.createElement("div", { style: { height: "0.5em" } }, null), // @ts-ignore
+        React.createElement("div", { style: { height: "0.5em" }, key: "spacer" }, null), // @ts-ignore
         globalThis.imgs.map((img, idx) => {
           const k = `${idx + 1}${img["i"].length > 10 ? `-${img["i"].substring(7, 11)}` : ""}`;
           const d = img["d"] ?? "";
@@ -164,11 +166,6 @@ class ImgsIterator extends React.Component {
           );
         })]
     );
-    // @ts-ignore
-    this.setState({
-      imagesWrapper: imagesWrapper
-    });
-
     return imagesWrapper;
   }
 }
