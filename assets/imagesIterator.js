@@ -1,5 +1,5 @@
 "use strict";
-const speed = 0.5;
+const speed = 0.7;
 const url = window.location.href;
 const href = url.substring(url.indexOf("#") + 1);
 const listModeLiteral = "listMode";
@@ -115,7 +115,30 @@ class ImgsIterator extends React.Component {
               onClick: () => rolling ? this.stopRolling() : this.startRolling()
             },
             rolling ? "Stop rolling" : "Start rolling"
-          ) : null,
+            // @ts-ignore
+          ) : React.createElement(
+            "a", {
+            href: "#listMode=rolling",
+            key: "startRolling",
+            onClick: () => {
+              window.open('#listMode=rolling', '_self');
+              window.location.reload();
+            },
+            style: {
+              backgroundColor: "#000",
+              border: "1px solid #666",
+              borderRadius: "0.3em",
+              color: "#FFF",
+              cursor: "pointer",
+              display: "inline-block",
+              fontSize: "1.6em",
+              fontFamily: "courier",
+              padding: "0.2em 0.5em 0.2em 0.5em",
+              textDecoration: "none"
+            }
+          },
+            "Start"
+          ),
         // @ts-ignore
         React.createElement(
           "div",
