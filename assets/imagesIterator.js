@@ -17,7 +17,7 @@ const notes = [
 ];
 //@ts-ignore Create a synth and connect it to the main output (your speakers)
 const synth = new Tone.Synth().toDestination();
-const interval = notes.length / speed; // 14 s
+const interval = notes.length / speed; // 22 s
 const totalDuration = Math.round(globalThis.imgs.length * interval / 60);
 const changingPositionSound = new Audio("./change.mp3");
 const difficultyColors = [
