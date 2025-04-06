@@ -1,5 +1,5 @@
 "use strict";
-const speed = 0.7;
+const speed = 0.9;
 const url = window.location.href;
 const href = url.substring(url.indexOf("#") + 1);
 const listModeLiteral = "listMode";
